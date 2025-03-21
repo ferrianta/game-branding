@@ -1,0 +1,315 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.hidden {
+    display: none;
+}
+
+header {
+    background: #007bff;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#character-selection {
+    text-align: center;
+}
+
+.character-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.character-btn {
+    padding: 15px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.character-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.character-btn img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    margin: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #f8f9fa;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.player {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    position: absolute;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    animation: bounce 0.5s ease;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+#question-area {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    width: 300px;
+}
+
+#answers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#answers button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#answers button:hover {
+    background: #0056b3;
+}
+
+#message-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* ==================== WARNA KOTAK (TAMBAHKAN DI BAWAH) ==================== */
+#board {
+    background: linear-gradient(45deg, #ffafbd, #ffc3a0);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cell {
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+/* Pola warna pelangi 10 kolom */
+.cell:nth-child(10n+1) { background: #FF6B6B; }  /* Merah muda */
+.cell:nth-child(10n+2) { background: #4ECDC4; }  /* Tosca */
+.cell:nth-child(10n+3) { background: #45B7D1; }  /* Biru langit */
+.cell:nth-child(10n+4) { background: #96CEB4; }  /* Mint */
+.cell:nth-child(10n+5) { background: #FFEEAD; }  /* Kuning muda */
+.cell:nth-child(10n+6) { background: #D4A5A5; }  /* Peach */
+.cell:nth-child(10n+7) { background: #FF9A8B; }  /* Salmon */
+.cell:nth-child(10n+8) { background: #7BC043; }  /* Hijau apel */
+.cell:nth-child(10n+9) { background: #FDF498; }  /* Kuning neon */
+.cell:nth-child(10n+10) { background: #B5EAD7; } /* Biru pudar */
+
+/* Efek hover */
+.cell:hover {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Kotak start dan finish khusus */
+#cell-1 {
+    background: #48cae4 !important;
+    border: 3px solid #0077b6;
+    animation: waterEffect 2s infinite;
+}
+
+#cell-50 {
+    background: #ffd700 !important;
+    border: 3px solid #ff6b6b;
+    animation: glitter 1.5s infinite;
+}
+
+/* Animasi */
+@keyframes waterEffect {
+    0% { box-shadow: 0 0 10px #0077b6; }
+    50% { box-shadow: 0 0 20px #0077b6; }
+    100% { box-shadow: 0 0 10px #0077b6; }
+}
+
+@keyframes glitter {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; transform: scale(1.1); }
+    100% { opacity: 1; }
+}
+
+/* ==================== RESPONSIVE MOBILE ==================== */
+@media (max-width: 768px) {
+    /* Header */
+    header h1 {
+        font-size: 1.5em;
+        padding: 0 10px;
+    }
+    
+    header p {
+        font-size: 0.9em;
+    }
+
+    /* Papan Permainan */
+    #board {
+        width: 95%;
+        padding: 8px;
+        gap: 3px;
+    }
+
+    .cell {
+        width: 30px;
+        height: 30px;
+        font-size: 0.7em;
+    }
+
+    /* Karakter */
+    .character-btn img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .character-btn {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    /* Tombol */
+    button {
+        padding: 12px 20px;
+        font-size: 0.9em;
+        margin: 8px;
+    }
+
+    /* Area Pertanyaan */
+    #question-area {
+        width: 90%;
+        max-width: 300px;
+        padding: 15px;
+    }
+
+    #answers button {
+        padding: 12px;
+        font-size: 0.8em;
+    }
+
+    /* Pion */
+    .player {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Animasi */
+    @keyframes glitter {
+        50% { transform: scale(1.05); }
+    }
+}
+
+/* Untuk Layar Sangat Kecil (Contoh: iPhone SE) */
+@media (max-width: 320px) {
+    #board {
+        gap: 2px;
+        padding: 5px;
+    }
+
+    .cell {
+        width: 28px;
+        height: 28px;
+    }
+
+    .character-options {
+        flex-direction: column;
+    }
+}
+
+/* Tombol Touch Friendly */
+button {
+    touch-action: manipulation;
+}
