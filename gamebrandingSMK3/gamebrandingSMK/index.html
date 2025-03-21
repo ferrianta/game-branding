@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Branding dan Marketing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎉 Game Branding and Marketing 🎉</h1>
+        <p>oleh: Nasywa Salsabila Khalisha</p>
+    </header>
+
+    <div id="character-selection">
+        <h2>Pilih Karakter</h2>
+        <div class="character-options">
+            <button onclick="selectCharacter('boy')" class="character-btn">
+                <img src="images/boy.png" alt="Boy">
+                Laki-laki
+            </button>
+            <button onclick="selectCharacter('girl')" class="character-btn">
+                <img src="images/girl.png" alt="Girl">
+                Perempuan
+            </button>
+        </div>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <div id="board"></div>
+        <div class="controls">
+            <button onclick="rollDice()">Lempar Dadu 🎲</button>
+            <button onclick="resetGame()">Reset Game 🔄</button>
+        </div>
+    </div>
+
+    <div id="question-area" class="hidden">
+        <p id="question-text"></p>
+        <div id="answers"></div>
+    </div>
+
+    <div id="message-modal" class="hidden">
+        <div class="modal-content">
+            <p id="message-text"></p>
+            <button onclick="closeMessage()">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
